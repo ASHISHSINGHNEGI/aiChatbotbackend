@@ -10,8 +10,11 @@ try {
   app.listen(PORT, () => {
     console.log(
       `🚀 Server running in ${
-        process.env.NODE_ENV || "development"
+        process.env.NODE_ENV || "dev"
       } mode on port ${PORT}`
     );
+   
   });
-} catch (error) {}
+} catch (error) {
+  console.log(error);
+}

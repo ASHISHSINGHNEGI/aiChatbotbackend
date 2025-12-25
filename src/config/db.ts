@@ -1,8 +1,6 @@
 // lib/mongoose.ts or utils/db.ts
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGO_URI as string;
-
 declare global {
   var mongoose:
     | {
@@ -26,6 +24,9 @@ if (cached.conn && cached.conn.readyState === 0) {
 }
 
 export async function connect(): Promise<mongoose.Connection> {
+  const MONGODB_URI = process.env.MONGO_URI as string;
+  const dbName = process.env.DB_NAME;
+
   if (!cached) {
     throw new Error("Global mongoose cache is undefined");
   }
@@ -35,7 +36,6 @@ export async function connect(): Promise<mongoose.Connection> {
     return cached.conn;
   }
 
-  const dbName = process.env.NURSE_DB_NAME;
   if (!dbName) {
     throw new Error("Db name Invalid");
   }
