@@ -13,7 +13,6 @@ try {
         process.env.NODE_ENV || "dev"
       } mode on port ${PORT}`
     );
-   
   });
 } catch (error) {
   console.log(error);
