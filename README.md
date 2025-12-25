@@ -52,6 +52,5 @@ npm run dev
 
 The server will typically be available at `http://localhost:5000`.
 
-## API Documentation
-
-Once the server is running, you can explore the API endpoints via:
+## Frontend github link
+https://github.com/ASHISHSINGHNEGI/aiChatbot
