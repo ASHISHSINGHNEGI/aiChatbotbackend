@@ -67,8 +67,8 @@ router.post("/message", async (req, res) => {
     // Map history to Gemini format: { role: "user" | "model", parts: [{ text: "" }] }
     // Note: Gemini uses "model" instead of "assistant"
     const contents = historyDocs.map((msg) => ({
-      role: msg.role as "user" | "ai",
-      content: msg.content,
+      role: msg.role === "ai" ? "model" : "user",
+      parts: [{ text: msg.content }],
     }));
     console.log({
       message: "history",
