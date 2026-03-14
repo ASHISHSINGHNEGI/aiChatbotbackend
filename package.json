@@ -24,6 +24,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@google/genai": "^1.45.0",
     "@types/mongoose": "^5.11.96",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
