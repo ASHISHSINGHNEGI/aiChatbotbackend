@@ -85,6 +85,7 @@ router.post("/message", async (req, res) => {
       message: "payload to ai",
       data: payload,
     });
+    
     //call for gemini
     const result = await fetchWithRetry(GEMINI_URL, {
       method: "POST",

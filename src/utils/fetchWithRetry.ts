@@ -5,9 +5,14 @@ export const fetchWithRetry = async (
   url: string,
   options: any,
   retries = 5,
-  backoff = 1000
+  backoff = 1000,
 ): Promise<any> => {
   try {
+    console.log("Fetching with retry...");
+    console.log("URL:", url);
+    console.log("Options:", options);
+    console.log("Retries:", retries);
+    console.log("Backoff:", backoff);
     const response = await fetch(url, options);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     return await response.json();
