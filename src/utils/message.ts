@@ -118,10 +118,8 @@ export function message() {
         data: result,
       });
 
-      const aiContent =
-        result.candidates?.[0]?.content?.parts?.[0]?.text ||
-        "I'm sorry, I couldn't process that request.";
-      const usedFallback = !result.candidates?.[0]?.content?.parts?.[0]?.text;
+      const aiContent = result || "I'm sorry, I couldn't process that request.";
+      const usedFallback = !result;
       console.log("[POST /message] aiContent extracted:", aiContent);
       if (usedFallback)
         console.warn(
