@@ -1,9 +1,10 @@
-import type mongoose from "mongoose";
+import mongoose from "mongoose";
+import type { Request, Response } from "express";
 import Message from "../models/Message.js";
 
 export function history() {
-  return async (req, res) => {
-    const { sessionId } = req.params;
+  return async (req: Request, res: Response) => {
+    const sessionId = req.params.sessionId!;
     console.log("[GET /history] Requested sessionId:", sessionId);
 
     if (!mongoose.Types.ObjectId.isValid(sessionId)) {

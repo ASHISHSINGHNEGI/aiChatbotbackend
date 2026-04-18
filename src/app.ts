@@ -1,5 +1,5 @@
 import cors from "cors";
-import express, { type Application } from "express";
+import express, { type Application, type Request, type Response } from "express";
 import chatRoutes from "./routes/chatRoutes.js";
 
 const app: Application = express();
@@ -12,7 +12,7 @@ app.use(express.json()); // Parses incoming JSON requests
 // }
 
 // Health Check (Good practice for cloud deployments)
-app.get("/health", (req, res) => {
+app.get("/health", (req: Request, res: Response) => {
   res
     .status(200)
     .json({ status: "UP", message: "AI Support Agent Server is running" });
